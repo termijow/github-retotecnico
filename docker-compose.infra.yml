@@ -18,6 +18,8 @@ services:
       context: .
       dockerfile: Dockerfile.backend
     restart: always
+    environment:
+      - PORT=3001
     networks:
       - infra-public
     labels:

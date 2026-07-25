@@ -1,0 +1,32 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    restart: always
+    depends_on:
+      - backend
+    networks:
+      - infra-public
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.github-profile.rule=Host(`github-profile.prismabitesting.xyz`)"
+      - "traefik.http.routers.github-profile.entrypoints=websecure"
+      - "traefik.http.routers.github-profile.middlewares=github-profile-redirect-https"
+      - "traefik.http.services.github-profile.loadbalancer.server.port=3000"
+      - "traefik.http.middlewares.github-profile-redirect-https.redirectscheme.scheme=https"
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    restart: always
+    networks:
+      - infra-public
+    # IMPORTANTE: No exponer backend públicamente, solo accesible internamente
+    labels:
+      - "traefik.enable=false"
+
+networks:
+  infra-public:
+    external: true

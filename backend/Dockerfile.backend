@@ -1,10 +1,10 @@
 FROM node:18-alpine
 WORKDIR /app
-# Copia las dependencias
+
 COPY package*.json ./
 RUN npm ci
-# Copia el código fuente
+
 COPY . .
-# Comando para ejecutar el backend
+
 CMD ["node", "dist/main.js"]
 EXPOSE 3001

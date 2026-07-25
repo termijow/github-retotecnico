@@ -23,7 +23,6 @@ services:
     restart: always
     networks:
       - infra-public
-    # IMPORTANTE: No exponer backend públicamente, solo accesible internamente
     labels:
       - "traefik.enable=false"
 

@@ -54,15 +54,28 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#0a0a0a] flex flex-col items-center justify-center p-6 font-sans text-zinc-100 selection:bg-red-500/30">
       
+<<<<<<< HEAD
+=======
+      {/* Elementos decorativos de fondo (opcional para realzar el glassmorphism sutil) */}
+>>>>>>> dc436434753144c951246df78ea13b4dae136baa
       <div className="absolute top-0 left-0 w-full h-96 bg-red-900/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
 
       <div className="w-full max-w-2xl space-y-6 z-10">
         
+<<<<<<< HEAD
         <div className="text-center space-y-2 mb-10">
           <h1 className="text-4xl font-extrabold tracking-tight text-white">GitHub Profile</h1>
           <p className="text-zinc-400">Descubre perfiles de desarrolladores al instante.</p>
         </div>
 
+=======
+        {/* Header */}
+        <div className="text-center space-y-2 mb-10">
+          <h1 className="text-4xl font-extrabold tracking-tight text-white">GitHub Profile</h1>
+        </div>
+
+        {/* Buscador con Glassmorphism Rojo Sutil */}
+>>>>>>> dc436434753144c951246df78ea13b4dae136baa
         <form onSubmit={handleSearch} className="bg-black/40 backdrop-blur-xl border border-red-500/30 p-2 rounded-xl shadow-2xl hover:border-red-500/60 transition-colors duration-300">
           <div className="flex gap-2">
             <div className="flex-1 relative">
@@ -89,9 +102,17 @@ export default function Home() {
           </div>
         </form>
 
+<<<<<<< HEAD
         <div className="bg-black/40 backdrop-blur-xl border border-red-500/30 rounded-2xl shadow-2xl p-8 relative overflow-hidden group hover:border-red-500/60 transition-colors duration-500">
           
           <div className="flex flex-col md:flex-row items-center gap-8">
+=======
+        {/* Contenido del Perfil con Glassmorphism Vercel-like */}
+        <div className="bg-black/40 backdrop-blur-xl border border-red-500/30 rounded-2xl shadow-2xl p-8 relative overflow-hidden group hover:border-red-500/60 transition-colors duration-500">
+          
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            {/* Avatar */}
+>>>>>>> dc436434753144c951246df78ea13b4dae136baa
             <div className="relative">
               <img
                 src={userData?.avatar_url || 'https://github.com/github.png'}
@@ -100,6 +121,10 @@ export default function Home() {
               />
             </div>
             
+<<<<<<< HEAD
+=======
+            {/* Información */}
+>>>>>>> dc436434753144c951246df78ea13b4dae136baa
             <div className="flex-1 text-center md:text-left w-full">
               <h2 className="text-3xl font-bold text-white mb-1 tracking-tight">
                 {userData?.name || userData?.login || 'Usuario no encontrado'}
@@ -107,6 +132,10 @@ export default function Home() {
               <p className="text-red-500 font-medium">@{userData?.login || '...'}</p>
               <p className="text-zinc-400 mt-4 leading-relaxed">{userData?.bio || 'Sin biografía proporcionada.'}</p>
               
+<<<<<<< HEAD
+=======
+              {/* Estadísticas */}
+>>>>>>> dc436434753144c951246df78ea13b4dae136baa
               <div className="grid grid-cols-3 gap-4 mt-8">
                 <div className="flex flex-col items-center md:items-start">
                   <span className="text-2xl font-bold text-white">{userData?.public_repos || 0}</span>

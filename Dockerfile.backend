@@ -1,14 +1,14 @@
-cd ~/infra/infra-ai-sdk/projects/github-retotecnico
-
-cat > Dockerfile.backend << 'EOF'
 FROM node:18-alpine
+
 WORKDIR /app
 
 COPY backend/package*.json ./backend/
 RUN cd backend && npm ci
 
-COPY backend/ .
+COPY backend/ ./backend/
+
 WORKDIR /app/backend
+
 CMD ["npm", "start"]
+
 EXPOSE 3001
-EOF

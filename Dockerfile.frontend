@@ -1,13 +1,16 @@
-cat > Dockerfile.frontend << 'EOF'
 FROM node:18-alpine
+
 WORKDIR /app
 
 COPY frontend/package*.json ./frontend/
 RUN cd frontend && npm ci
 
-COPY frontend/ .
+COPY frontend/ ./frontend/
+
 WORKDIR /app/frontend
+
 RUN npm run build
+
 CMD ["npm", "start"]
+
 EXPOSE 3000
-EOF

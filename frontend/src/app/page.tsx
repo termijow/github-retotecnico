@@ -22,9 +22,7 @@ export default function Home() {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await fetch(
-          `http://localhost:3001/api/github/user/${username}`
-        );
+        const res = await fetch(`/api/github/user/${username}`);
 
         if (!res.ok) {
           throw new Error('Error en la API');

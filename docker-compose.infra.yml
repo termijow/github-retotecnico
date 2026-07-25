@@ -12,9 +12,8 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.github-profile.rule=Host(`github-profile.prismabitesting.xyz`)"
       - "traefik.http.routers.github-profile.entrypoints=websecure"
-      - "traefik.http.routers.github-profile.middlewares=github-profile-redirect-https"
+      - "traefik.http.routers.github-profile.tls=true"
       - "traefik.http.services.github-profile.loadbalancer.server.port=3000"
-      - "traefik.http.middlewares.github-profile-redirect-https.redirectscheme.scheme=https"
 
   backend:
     build:
@@ -24,7 +23,11 @@ services:
     networks:
       - infra-public
     labels:
-      - "traefik.enable=false"
+      - "traefik.enable=true"
+      - "traefik.http.routers.github-profile-api.rule=Host(`github-profile.prismabitesting.xyz`) && PathPrefix(`/api`)"
+      - "traefik.http.routers.github-profile-api.entrypoints=websecure"
+      - "traefik.http.routers.github-profile-api.tls=true"
+      - "traefik.http.services.github-profile-api.loadbalancer.server.port=3001"
 
 networks:
   infra-public:
